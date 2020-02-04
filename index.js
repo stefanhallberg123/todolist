@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.set("views", "views");
 app.set("view engine", "ejs");
-
+// underst route
 app.use(toDoListRouter);
 
 //listen to port
