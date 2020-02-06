@@ -9,15 +9,15 @@
 <%- include("partial/header.ejs") %>
 <body>
     <form action="/createtodo" method="post">
-        <input type="text" name="item" placeholder="What are you doing today">
+        <input type="text" name="item" placeholder="What are you doing today" required>
                <button type="submit">Comment</button>
    </form>
    
                <% newTodo.forEach( (todo)  => { %>
-       <div class="todos"><li><%= todo.item %></li>
+       <div> <li> <%= todo.item %> </li>
 
         <a href="/update/<%=todo._id%>">Update</a>
-   <a href="/delete/<%=todo._id%>">Delete</a>
+        <a href="/delete/<%=todo._id%>">Delete</a>
         <% }); %>
     </div>
 

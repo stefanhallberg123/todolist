@@ -2,4 +2,11 @@ body{
     background: darksalmon;
     color: white;
     text-align: center;
-};
+}
+a {
+    color:black;
+    text-decoration: none;
+}
+ol {
+    color: white;
+}

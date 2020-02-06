@@ -6,12 +6,23 @@ const router = express.Router();
 router.get("/createtodo",(req, res) => res.render("createtodo"));
 
 router.post("/createtodo", async (req, res)=> {
-    await new ToDoList ({ item: req.body.item }).save();
-         res.redirect("/todolist");
+    await new ToDoList ({ item: req.body.item }).save((error, success) => {
+        if(error) {
+            console.log(error)
+            res.send(error._message);
+        }
+        else {
+            res.redirect("/todolist");
+        }
+    });
+    //res.redirect("/todolist");
     });
 
 router.get("/todolist", async (req, res) => {
-    const newTodo = await ToDoList.find();
+   
+    console.log(req.query);
+    const sorted= req.query.sort;
+    const newTodo = await ToDoList.find().sort({item:sorted});
     res.render("todolist", {newTodo});
 });
 
