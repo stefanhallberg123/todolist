@@ -1,20 +1,21 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const toDoListRouter = require("./router/listRouter");
+const ToDoList = require("./router/listRouter");
 const path = require("path");
-const config = require("./config/config")
+const config = require("./config/config");
 
 // middleware
 const app = express();
 
-app.use(express.urlencoded({extended:true}));
-
-app.use(express.static(path.join(__dirname, "public")));
 
 app.set("views", "views");
 app.set("view engine", "ejs");
+app.use(express.urlencoded({extended:true}));
+
 // underst route
-app.use(toDoListRouter);
+app.use(ToDoList);
+
+app.use(express.static(path.join(__dirname, "public")));
 
 //listen to port
 const port = process.env.PORT || 9696;

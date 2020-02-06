@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 
 const schemaToDoList = new mongoose.Schema ({
-        item: {type:String, require: true, minlength:2}
+        item: String,
+
     });
 
  
-const toDoList = mongoose.model("ToDoList", schemaToDoList);
+const ToDoList = mongoose.model("ToDoList", schemaToDoList);
 
-module.exports = toDoList;
+module.exports = ToDoList;
