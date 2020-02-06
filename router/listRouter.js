@@ -3,10 +3,12 @@ const ToDoList = require("../model/todolist");
 
 const router = express.Router();
 
-router.get("/createtodo",(req, res) => res.render("createtodo"));
+    // get and post create new todo and read old
+router.route("/createtodo")
+    .get((req, res) =>  res.render("createtodo"))
 
-router.post("/createtodo", async (req, res)=> {
-    await new ToDoList ({ item: req.body.item }).save((error, success) => {
+    .post(async (req, res) => {
+        await new ToDoList ({ item: req.body.item }).save((error, success) => {
         if(error) {
             console.log(error)
             res.send(error._message);
@@ -16,28 +18,28 @@ router.post("/createtodo", async (req, res)=> {
         }
     });
     //res.redirect("/todolist");
-    });
-
+});
+    // get done todos and sort
 router.get("/todolist", async (req, res) => {
-   
-    console.log(req.query);
     const sorted= req.query.sort;
     const newTodo = await ToDoList.find().sort({item:sorted});
     res.render("todolist", {newTodo});
 });
-
+    // delete todo on id
 router.get("/delete/:id", async (req,res) =>{
     await ToDoList
     .deleteOne({_id:req.params.id});
     res.redirect("/todolist");
 });
 
-router.get("/update/:id", async (req,res) =>{
+    // update and get updated todos
+router.route("/update/:id")
+    .get (async (req,res) =>{
     const update = await ToDoList.findById({_id:req.params.id});
     res.render("edit", {update})
-});
+    })
 
-router.post("/update/:id", async (req,res)=>{
+    .post(async (req,res)=>{
    await ToDoList
    .updateOne({_id: req.params.id}, 
     {$set: {item: req.body.item}});
