@@ -3,14 +3,11 @@ const ToDoList = require("../model/todolist");
 
 const router = express.Router();
 
-router.get("/createtodo")
-    .get((req, res) => res.render("createtodo"));
+router.get("/createtodo",(req, res) => res.render("createtodo"));
 
 router.post("/createtodo", async (req, res)=> {
-    console.log(req.body)
     await new ToDoList ({ item: req.body.item }).save();
-        // save((err, success)=> res.send(err._message));
-        // res.redirect("/todolist");
+         res.redirect("/todolist");
     });
 
 router.get("/todolist", async (req, res) => {
@@ -19,7 +16,6 @@ router.get("/todolist", async (req, res) => {
 });
 
 router.get("/delete/:id", async (req,res) =>{
-    console.log(req.params.id);
     await ToDoList
     .deleteOne({_id:req.params.id});
     res.redirect("/todolist");

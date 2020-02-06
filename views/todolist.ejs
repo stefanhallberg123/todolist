@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>dina kommentarer</title>
-    <link rel="stylesheet" href="/main.css">
 </head>
+<%- include("partial/header.ejs") %>
 <body>
     <form action="/createtodo" method="post">
         <input type="text" name="item" placeholder="What are you doing today">
@@ -16,11 +16,9 @@
                <% newTodo.forEach( (todo)  => { %>
        <div class="todos"><li><%= todo.item %></li>
 
-        <a href="/update/<%=todo._id%>">update</a>
+        <a href="/update/<%=todo._id%>">Update</a>
    <a href="/delete/<%=todo._id%>">Delete</a>
         <% }); %>
     </div>
 
-        
-</body>
-</html>
+<%- include("partial/footer.ejs") %>

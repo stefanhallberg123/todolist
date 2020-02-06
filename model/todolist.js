@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const schemaToDoList = new mongoose.Schema ({
-        item: String,
+        item: {type: String, required:true, minlength:2} 
 
     });
 
