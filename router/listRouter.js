@@ -21,9 +21,18 @@ router
 // get done todos and sort
 router.get("/todolist", async (req, res) => {
   const sorted = req.query.sort;
-  const newTodo = await ToDoList.find().sort({ item: sorted });
+  // const newTodo = await ToDoList.find().sort({ item: sorted });
 
-  res.render("todolist", { newTodo });
+  const currentPage = req.query.page || 1;
+  const items = 3;
+  const allTodos = await ToDoList.find();
+  const amountTodos = await ToDoList.find()
+    .skip((currentPage - 1) * items)
+    .limit(items)
+    .sort({ item: sorted });
+  const pageCount = Math.ceil(allTodos.length / items);
+
+  res.render("todolist", { amountTodos, pageCount, currentPage });
 });
 // delete todo on id
 router.get("/delete/:id", async (req, res) => {

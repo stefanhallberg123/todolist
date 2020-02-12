@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>dina kommentarer</title>
-</head>
-<%- include("partial/header.ejs") %>
-<body>
+  </head>
+  <h1>Välkommen!</h1>
+
+  <%- include("partial/header.ejs") %>
+  <body>
     <form action="/createtodo" method="post">
-        <input type="text" name="item" placeholder="What are you doing today" required>
-               <button type="submit">Comment</button>
-   </form>
-   
-               <% newTodo.forEach( (todo)  => { %>
-       <div> <li> <%= todo.item %> </li>
+      <input
+        type="text"
+        name="item"
+        placeholder="What are you doing today"
+        required
+      />
+      <button type="submit">Comment</button>
+    </form>
 
-        <a href="/update/<%=todo._id%>">Update</a>
-        <a href="/delete/<%=todo._id%>">Delete</a>
-        <% }); %>
+    <% amountTodos.forEach( (todo) => { %>
+    <div>
+      <li><%= todo.item %></li>
+
+      <a href="/update/<%=todo._id%>">Update</a>
+      <a href="/delete/<%=todo._id%>">Delete</a>
+      <% }); %>
     </div>
-
-<%- include("partial/footer.ejs") %>
+    <br />
+    <% for(let page = 1; page <= pageCount; page++) { %> <% if (currentPage ==
+    page) { %>
+    <a href="/todolist/?page=<%= page %>" class="active"><%= page %></a>
+    <% } else { %>
+    <a href="/todolist/?page=<%= page %>"><%= page %></a>
+    <% } %> <% } %> <%- include("partial/footer.ejs") %>
+  </body>
+</html>
