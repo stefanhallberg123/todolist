@@ -22,6 +22,7 @@ router
 router.get("/todolist", async (req, res) => {
   const sorted = req.query.sort;
   const newTodo = await ToDoList.find().sort({ item: sorted });
+
   res.render("todolist", { newTodo });
 });
 // delete todo on id
