@@ -24,7 +24,7 @@ router.get("/todolist", async (req, res) => {
   // const newTodo = await ToDoList.find().sort({ item: sorted });
 
   const currentPage = req.query.page || 1;
-  const items = 3;
+  const items = 5;
   const allTodos = await ToDoList.find();
   const amountTodos = await ToDoList.find()
     .skip((currentPage - 1) * items)
