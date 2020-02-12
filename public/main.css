@@ -1,12 +1,13 @@
-body{
-    background: darksalmon;
-    color: white;
-    text-align: center;
+body {
+  background: darksalmon;
+  color: white;
+  text-align: center;
+  font-size: large;
 }
 a {
-    color:black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 ol {
-    color: white;
+  color: white;
 }
