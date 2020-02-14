@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress": "cypress open",
+    "cy:run": "cypress run -- --record --spec 'cypress/integration/todo_ui_spec.js'",
+    "unittest": "mocha",
+    "test": "npm run unittest & npm run cy:run"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +15,10 @@
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "mongoose": "^5.8.11"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cypress": "^4.0.1",
+    "mocha": "^7.0.1"
   }
 }
