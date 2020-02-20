@@ -5,9 +5,10 @@ const path = require("path");
 const config = require("./config/config");
 const bodyParser = require("body-parser");
 
+const app = express();
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const app = express();
 
 app.set("views", "views");
 app.set("view engine", "ejs");
