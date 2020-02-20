@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const ToDoList = require("./router/listRouter");
 const path = require("path");
 const config = require("./config/config");
+const bodyParser = require("")
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 const app = express();
 
 app.set("views", "views");
