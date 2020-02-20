@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const ToDoList = require("./router/listRouter");
 const path = require("path");
 const config = require("./config/config");
-const bodyParser = require("")
+const bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const app = express();
 
