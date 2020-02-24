@@ -1,9 +1,9 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const ToDoList = require("./router/listRouter");
-const path = require("path");
-const config = require("./config/config");
-const bodyParser = require("body-parser");
+import express from "express";
+import mongoose from "mongoose";
+import ToDoList from "./router/listRouter";
+import path from "path";
+import config from "./config/config";
+import bodyParser from "body-parser";
 
 const app = express();
 
