@@ -5,7 +5,7 @@ import path from "path";
 import config from "./config/config";
 import bodyParser from "body-parser";
 import fs from "fs";
-import ejs from "ejs";
+import ejs from "ejs"
 
 const app = express();
 
