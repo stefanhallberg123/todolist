@@ -7,7 +7,9 @@
     "cypress": "cypress open",
     "cy:run": "cypress run -- --record --spec 'cypress/integration/todo_ui_spec.js'",
     "unittest": "mocha",
-    "test": "npm run unittest & npm run cy:run"
+    "test": "npm run unittest & npm run cy:run",
+    "start": "npm run build && node dist/index.js",
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./modules,./.babelrc,./package.json,./npm-debug.log,--copy-files"
   },
   "author": "",
   "license": "ISC",
@@ -15,11 +17,16 @@
     "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "mongoose": "^5.8.11"
+    "mongoose": "^5.8.11",
+    "nodemon": "^2.0.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
     "chai": "^4.2.0",
     "cypress": "^4.0.1",
-    "mocha": "^7.0.1"
+    "mocha": "^7.0.1",
+    "rimraf": "^3.0.2"
   }
 }
