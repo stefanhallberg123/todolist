@@ -1,0 +1,18 @@
+body {
+  background: darksalmon;
+  color: white;
+  text-align: center;
+  font-size: large;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+ol {
+  color: white;
+}
+footer {
+  position: fixed;
+  bottom: 30;
+  width: 100%;
+}
