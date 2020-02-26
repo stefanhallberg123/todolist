@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const schemaToDoList = new mongoose.Schema({
   item: { type: String, required: true, minlength: 2 }

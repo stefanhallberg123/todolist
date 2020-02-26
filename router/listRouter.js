@@ -1,5 +1,5 @@
-const express = require("express");
-const ToDoList = require("../model/todolist");
+import express from "express";
+import ToDoList from "../model/todolist";
 
 const router = express.Router();
 
