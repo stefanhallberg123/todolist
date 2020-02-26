@@ -28,3 +28,13 @@ mongoose.connect(config.databaseURL, options).then(() => {
   app.listen(port);
   console.log(`listening on ${port} the coolest port in the world`);
 });
+
+const { app, port } = require("./src/server");
+const dbConfig = require("./config/config");
+
+if (process.env.NODE_ENV == "prduction") {
+  dbConfig.databaseURL = process.env.MONGO_ATLAS_URL;
+} else {
+  const dbConfig = require("./config/config");
+}
+
