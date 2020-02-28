@@ -1,0 +1,6 @@
+<%- include ("partial/header.ejs") %>
+<form method="POST">
+  <input type="text" name="item" value="<%=update.item%>" required />
+  <input type="text" name="id" value="<%=update.id%>" required hidden />
+  <button type="submit">Update</button>
+</form>

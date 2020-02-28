@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import ToDoList from "./router/listRouter";
+import router from "./router/listRouter";
 import path from "path";
 import config from "./config/config";
 import bodyParser from "body-parser";
@@ -15,7 +15,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(ToDoList);
+app.use(router);
 
 const port = process.env.PORT || 9696;
 
@@ -28,4 +28,3 @@ mongoose.connect(config.databaseURL, options).then(() => {
   app.listen(port);
   console.log(`listening on ${port} the coolest port in the world`);
 });
-
