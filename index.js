@@ -1,8 +1,8 @@
-import express from "express";
-import mongoose from "mongoose";
-import router from "./router/listRouter";
-import path from "path";
-import config from "./config/config";
+const express = require("express");
+const mongoose = require("mongoose");
+const router = require("./router/listRouter");
+const path = require("path");
+const config = require("./config/config");
 
 const app = express();
 
@@ -19,7 +19,7 @@ const options = {
   useUnifiedTopology: true
 };
 
-const port = process.env.PORT || 1996;
+const port = 1996;
 
 mongoose.connect(config.databaseURL, options).then(() => {
   app.listen(port);

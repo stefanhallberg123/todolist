@@ -1,5 +1,5 @@
-import express from "express";
-import ToDoList from "../model/todolist";
+const express = require("express");
+const ToDoList = require("../model/todolist");
 
 const router = express.Router();
 
@@ -53,4 +53,4 @@ router
     res.redirect("/todolist");
   });
 
-export default router;
+module.exports = router;
