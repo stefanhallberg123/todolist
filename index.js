@@ -13,14 +13,15 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(router);
 
-const dbUrl = process.env.MONGO_ATLAS_URL;
 
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true
 };
 
-mongoose.connect(config, dbUrl, options).then(() => {
+const port = process.env.PORT || 1996;
+
+mongoose.connect(config.databaseURL, options).then(() => {
   app.listen(port);
   console.log(`listening on ${port} the coolest port in the world`);
 });
