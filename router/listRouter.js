@@ -1,5 +1,6 @@
 const express = require("express");
 const ToDoList = require("../model/todolist");
+require("dotenv").config({ path: "./.env" })
 
 const router = express.Router();
 

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const router = require("./router/listRouter");
 const path = require("path");
 const config = require("./config/config");
+require("dotenv").config;
 
 const app = express();
 
@@ -19,7 +20,7 @@ const options = {
   useUnifiedTopology: true
 };
 
-const port = 1996;
+const port = process.env.PORT || 1996;
 
 mongoose.connect(config.databaseURL, options).then(() => {
   app.listen(port);
