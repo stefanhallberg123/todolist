@@ -22,7 +22,9 @@ const options = {
 
 const port = process.env.PORT || 1996;
 
+
 mongoose.connect(config.databaseURL, options).then(() => {
   app.listen(port);
   console.log(`listening on ${port} the coolest port in the world`);
+  console.log(config.databaseURL);
 });
